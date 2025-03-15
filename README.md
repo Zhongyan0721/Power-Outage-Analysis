@@ -2,25 +2,6 @@
 
 **Name(s)**: Zhongyan Luo
 
-**Website Link**: https://zhongyan0721.github.io/Power-Outage-Analysis/
-
-
-```python
-import pandas as pd
-import numpy as np
-from pathlib import Path
-
-import plotly.express as px
-import plotly.io as pio
-pio.renderers.default = 'notebook'
-pd.options.plotting.backend = 'plotly'
-
-from dsc80_utils import *
-
-import warnings
-warnings.filterwarnings('ignore')
-```
-
 ## Step 1: Introduction
 
 ​Power outages have become an increasingly pressing concern due to their frequency and impact on modern society. Recent data indicates that the United States has experienced a significant rise in weather-related power outages during warmer months, with a 60% increase over the past decade compared to the 2000s. This uptick is largely attributed to climate change, which intensifies storms, wildfires, and other extreme weather events, placing additional stress on aging power infrastructure. Beyond the immediate inconvenience, outages pose serious risks to public health and safety. For instance, individuals reliant on medical devices such as ventilators face life-threatening situations during prolonged outages. Economically, power outages can be devastating. Businesses suffer from operational disruptions, leading to great financial losses.
