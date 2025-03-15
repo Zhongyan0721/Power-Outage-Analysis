@@ -207,4 +207,13 @@ The accuracy increases from 65.8% to 78.2% and F-1 score becomes [0.13, 0.86, 0.
 
 ## Step 8: Fairness Analysis
 
-To assess fairness, the model's precision was compared for urban and rural areas, using the percentage of urban population as a proxy. A permutation test was conducted with 1,000 iterations to evaluate whether the observed difference in precision scores between urban and rural groups was statistically significant. The results indicated that the model's performance varied across these groups, suggesting potential biases that need further investigation.
+To assess fairness, the model's precision was compared for urban and rural areas, using the percentage of urban population as a proxy. A permutation test was conducted with 1,000 iterations to evaluate whether the observed difference in precision scores between urban and rural groups was statistically significant. 
+
+Null Hypothesis:
+The model's precision is the same for both urban and rural areas. Any observed difference in precision is due to random chance.
+
+Alternative Hypothesis:
+The model's precision is significantly different between urban and rural areas.
+
+The test statistics is the difference between prediction precision of urban and rural areas.
+By running the test, we get p-value 0.091 > 0.05. We fail to reject the null hypothesis.
