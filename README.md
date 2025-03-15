@@ -18,20 +18,22 @@ In the predictive analysis of this project, I will predict the impacted populati
 
 ## Step 2: Data Cleaning and Exploratory Data Analysis
 
+First, lets take a look at the most common causes of major outages.
 <iframe
   src="assets/fig_cause.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+The graph shows that the most common cause is severe weather, followed by intentional attack, system operability distruption, public appeals and so on.
 
+Then, we also want to see if there's trend of outage over years.
 <iframe
-  src="assets/fig_customer.html"
+  src="assets/fig_year.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-
 
 <div>
 <table border="1" class="dataframe">
