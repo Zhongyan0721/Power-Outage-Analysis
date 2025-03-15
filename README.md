@@ -172,18 +172,39 @@ The average number of customers affected by severe weather outages is the same a
 Alternative Hypothesis:
 There is a difference between the average number of customers affected by severe weather outages and the average number of customers affected by intentional attack outages.
 
-p-value < 0.05. We reject the null hypothesis. Thus, it is likely that we can use the number of affected customers to predict the reason of outage.
+p-value < 0.05. We reject the null hypothesis. 
+It is likely that we can use the number of affected customers to predict the reason of outage.
 
 ## Step 5: Framing a Prediction Problem
 
+Our model is a classifier of multiclass classification. The objective of this project was to develop a machine learning model capable of predicting the cause of major power outages based on historical data. In addition to building the predictive model, a fairness analysis was conducted to determine whether the model performed differently across urban and rural regions. This analysis was important to ensure that the model does not disproportionately underperform for any particular group. 
 
+A Random Forest Classifier was trained to predict the cause of power outages, and its performance was evaluated using standard classification metrics. The model achieved an accuracy of 65.8% and f-1 score [0.11, 0.75, 0.1 , 0.47, 0.78, 0.17], with relatively good performance in predicting causes such as vandalism and hurricanes, but weaker performance for less common causes like tornadoes and wind storms. The imbalance in class distribution presented a challenge, as certain categories had very few samples, leading to poor recall in those groups. Then, we add several more features and tune the hyperparameter to improve our baseline model and achieve an accuracy of 78.2%.
+
+While accuracy gives a high-level view of model performance, F1-score would be more useful if we are particularly concerned with the model's ability to correctly classify underrepresented outage causes. If fairness is a concern (e.g., ensuring the model doesn’t disproportionately misclassify outages in rural areas), using F1-score for individual classes could provide deeper insights. The F-1 score of our final model is [0.13, 0.86, 0.53, 0.64, 0.89, 0.29], which indicates its performance is better for gruops that has more samples.
 
 ## Step 6: Baseline Model
 
-
+Since we use a random forest model, we do not prefer to use any encoding techniques due to the structure of trees (encoding will increase number of features and thus increase depth of tree).
+To predict the cause of outage, we first choose columns 'YEAR' (quantitative), 'MONTH' (quantitative), 'CLIMATE.REGION' (nominal), 'ANOMALY.LEVEL' (quantitative), 'CLIMATE.CATEGORY' (nominal), 'RES.CUSTOMERS' (quantitative).
+The model achieved an accuracy of 65.8% with f-1 score [0.11, 0.75, 0.1 , 0.47, 0.78, 0.17]. The performance is not that good since it's just a bit higher than pure guessing (50%). We might need more features to get a better prediction.
 
 ## Step 7: Final Model
 
+To improve the model, we add features 'CUSTOMERS.AFFECTED' (quantitative), 'PC.REALGSP.STATE' (quantitative), 'POPPCT_URBAN' (quantitative).
+Since different kind of cause will lead to different number of people affected (discussed in step 4), more affected people might indicate a severe weather cause and less affected people might indicate an intentional attack. We can count the districts or family affected to get the'CUSTOMERS.AFFECTED' value after outage and use it to do prediction.
+Also, GSP can be another indicator since states with higher GSP tend to have better security and equipment to avoid intentional attack and equipment failure.
+I choose population percentage in urban area as well. If one state has more urban residents, the pressure of electricity can be higher and it is more difficult to manage the power system, leading to system operability disruption.
 
+I used GridSearchCV for tuning the hyperparameters. The best hyperprameters are:
+
+- 'classifier__max_depth': 20
+- 'classifier__min_samples_leaf': 1
+- 'classifier__min_samples_split': 5
+- 'classifier__n_estimators': 300
+
+The accuracy increases from 65.8% to 78.2% and F-1 score becomes [0.13, 0.86, 0.53, 0.64, 0.89, 0.29], which indicates a significant improvement in the prediction performance.
 
 ## Step 8: Fairness Analysis
+
+To assess fairness, the model's precision was compared for urban and rural areas, using the percentage of urban population as a proxy. A permutation test was conducted with 1,000 iterations to evaluate whether the observed difference in precision scores between urban and rural groups was statistically significant. The results indicated that the model's performance varied across these groups, suggesting potential biases that need further investigation.
