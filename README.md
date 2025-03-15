@@ -166,7 +166,13 @@ The missingness of "CUSTOMERS.AFFECTED" may not depend on "CLIMATE.CATEGORY" (p-
 
 ## Step 4: Hypothesis Test
 
+Null Hypothesis:
+The average number of customers affected by severe weather outages is the same as the average number of customers affected by intentional attack outages.
 
+Alternative Hypothesis:
+There is a difference between the average number of customers affected by severe weather outages and the average number of customers affected by intentional attack outages.
+
+p-value < 0.05. We reject the null hypothesis. Thus, it is likely that we can use the number of affected customers to predict the reason of outage.
 
 ## Step 5: Framing a Prediction Problem
 
