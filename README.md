@@ -156,7 +156,13 @@ The missingness of "CUSTOMERS.AFFECTED" depends on "CAUSE.CATEGORY" (p-value = 0
 
 The missingness of "CUSTOMERS.AFFECTED" does not depend on "RES.PRICE" (p-value = 1.0) and "TOTAL.PRICE" (p-value = 1.0). This indicates that the likelihood of missing values in "CUSTOMERS.AFFECTED" is independent of electricity prices, meaning the missingness is likely unrelated to economic factors.
 
-The missingness of "CUSTOMERS.AFFECTED" may not depend on "CLIMATE.CATEGORY" (p-value = 0.178). This suggests weak evidence of dependence, meaning climate conditions are not a strong determinant of missing customer impact data.
+The missingness of "CUSTOMERS.AFFECTED" may not depend on "CLIMATE.CATEGORY" (p-value = 0.178). This suggests weak evidence of dependence, meaning climate conditions are not a strong determinant of missing customer impact data. See the following graph.
+<iframe
+  src="assets/fig_missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Step 4: Hypothesis Test
 
