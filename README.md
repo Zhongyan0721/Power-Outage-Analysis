@@ -35,14 +35,23 @@ First, lets take a look at the most common causes of major outages.
   frameborder="0"
 ></iframe>The graph shows that the most common cause is severe weather, followed by intentional attack, system operability distruption, public appeals and so on.
 
-### Bivariate Analysis
-Then, we also want to see if there's trend of outage over years.
+We also want to see if there's trend of outage over years.
 <iframe
   src="assets/fig_year.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>The number of outage over years has an increasing trend until 2011 where it reaches the peak, and after 2011, the number decreases gradually.
+
+### Bivariate Analysis
+
+We are curious about if different causes of outage can have different durations. Lets plot their relationship using a boxplot.
+<iframe
+  src="assets/fig_year.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>The boxplot highlights the distribution of outage duration across different cause categories, which can reveal patterns in how different types of outages vary in duration.
 
 <div>
 <table border="1" class="dataframe">
