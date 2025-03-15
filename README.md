@@ -73,7 +73,7 @@ We do a double grouping here and see if that guess is true.
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>-1.6</td>
       <td>2</td>
       <td>93.88</td>
@@ -81,7 +81,7 @@ We do a double grouping here and see if that guess is true.
     </tr>
     <tr>
       <th>1</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>-1.4</td>
       <td>6</td>
       <td>86.91</td>
@@ -89,7 +89,7 @@ We do a double grouping here and see if that guess is true.
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>-1.3</td>
       <td>14</td>
       <td>83.78</td>
@@ -97,7 +97,7 @@ We do a double grouping here and see if that guess is true.
     </tr>
     <tr>
       <th>3</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>-0.7</td>
       <td>33</td>
       <td>94.14</td>
@@ -105,7 +105,7 @@ We do a double grouping here and see if that guess is true.
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>-0.5</td>
       <td>38</td>
       <td>91.50</td>
@@ -114,12 +114,49 @@ We do a double grouping here and see if that guess is true.
   </tbody>
 </table>
 </div>
-
+The table shows a clear trend that with higher anormaly level, outage tends to occur more often.
 
 
 ## Step 3: Assessment of Missingness
 
+### NMAR Analysis
 
+One column in the dataset that may be Not Missing At Random (NMAR) is "HURRICANE.NAMES". This column has a significant number of missing values (1462), which suggests that missingness is likely due to the nature of the outage cause. If a power outage was not caused by a hurricane, it is reasonable that the hurricane name would be missing.
+
+### Missingness Dependency
+
+Since the column "CUSTOMERS.AFFECTED" has the most missing values, we will check its missingness dependency.
+By running a permutation test, we get the following p-values:
+<div>
+<table border="1" class="dataframe">
+  <tbody>
+    <tr>
+      <th>CLIMATE.CATEGORY</th>
+      <td>0.178</td>
+    </tr>
+    <tr>
+      <th>CAUSE.CATEGORY</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>RES.PRICE</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>TOTAL.PRICE</th>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Based on the permutation tests:
+
+The missingness of "CUSTOMERS.AFFECTED" depends on "CAUSE.CATEGORY" (p-value = 0.0). This suggests that the likelihood of missing values in "CUSTOMERS.AFFECTED" is influenced by the cause of the outage. Certain outage causes may not require or report the number of affected customers, leading to systematic missingness.
+
+The missingness of "CUSTOMERS.AFFECTED" does not depend on "RES.PRICE" (p-value = 1.0) and "TOTAL.PRICE" (p-value = 1.0). This indicates that the likelihood of missing values in "CUSTOMERS.AFFECTED" is independent of electricity prices, meaning the missingness is likely unrelated to economic factors.
+
+The missingness of "CUSTOMERS.AFFECTED" may not depend on "CLIMATE.CATEGORY" (p-value = 0.178). This suggests weak evidence of dependence, meaning climate conditions are not a strong determinant of missing customer impact data.
 
 ## Step 4: Hypothesis Test
 
