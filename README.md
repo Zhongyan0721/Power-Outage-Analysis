@@ -18,7 +18,19 @@ In the predictive analysis of this project, I will predict the impacted populati
 
 ## Step 2: Data Cleaning and Exploratory Data Analysis
 
+<iframe
+  src="assets/fig_cause.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
+<iframe
+  src="assets/fig_customer.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 <div>
