@@ -14,7 +14,7 @@ By researching the dataset, we can get some insight abou the following questions
 - How do climate anomalies (e.g., cold vs. warm) correlate with the frequency and duration of outages?
 - Are there specific months or seasons when outages are more likely to occur?
 
-In the predictive analysis of this project, I will predict the impacted population of power outage based on other related factors.
+In the predictive analysis of this project, I will predict the causes of power outage based on other related factors.
 
 ## Step 2: Data Cleaning and Exploratory Data Analysis
 
