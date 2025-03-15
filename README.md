@@ -18,12 +18,14 @@ In the predictive analysis of this project, I will predict the causes of power o
 
 ## Step 2: Data Cleaning and Exploratory Data Analysis
 
+### Data Cleaning
 To make sure we can modeling the data conviniently and correctly, we clean the data by the following steps:
 
 - Replaced missing numerical values (e.g., MONTH, ANOMALY.LEVEL, OUTAGE.DURATION, CUSTOMERS.AFFECTED) with NaN for proper handling.
 - Converted empty categorical values (e.g., CLIMATE.REGION, CLIMATE.CATEGORY, CAUSE.CATEGORY.DETAIL, HURRICANE.NAMES) to empty string.
 - Converted OUTAGE.START.DATE and OUTAGE.RESTORATION.DATE to datetime format.
 
+### Univariate Analysis
 Then, to get a brief understanding of the data, we explore if there's trend or interesting pattern in data.
 First, lets take a look at the most common causes of major outages.
 <iframe
@@ -31,16 +33,16 @@ First, lets take a look at the most common causes of major outages.
   width="800"
   height="600"
   frameborder="0"
-></iframe>
-The graph shows that the most common cause is severe weather, followed by intentional attack, system operability distruption, public appeals and so on.
+></iframe>The graph shows that the most common cause is severe weather, followed by intentional attack, system operability distruption, public appeals and so on.
 
+### Bivariate Analysis
 Then, we also want to see if there's trend of outage over years.
 <iframe
   src="assets/fig_year.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe>
+></iframe>The number of outage over years has an increasing trend until 2011 where it reaches the peak, and after 2011, the number decreases gradually.
 
 <div>
 <table border="1" class="dataframe">
