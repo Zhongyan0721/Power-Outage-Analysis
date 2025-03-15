@@ -18,6 +18,13 @@ In the predictive analysis of this project, I will predict the causes of power o
 
 ## Step 2: Data Cleaning and Exploratory Data Analysis
 
+To make sure we can modeling the data conviniently and correctly, we clean the data by the following steps:
+
+- Replaced missing numerical values (e.g., MONTH, ANOMALY.LEVEL, OUTAGE.DURATION, CUSTOMERS.AFFECTED) with NaN for proper handling.
+- Converted empty categorical values (e.g., CLIMATE.REGION, CLIMATE.CATEGORY, CAUSE.CATEGORY.DETAIL, HURRICANE.NAMES) to empty string.
+- Converted OUTAGE.START.DATE and OUTAGE.RESTORATION.DATE to datetime format.
+
+Then, to get a brief understanding of the data, we explore if there's trend or interesting pattern in data.
 First, lets take a look at the most common causes of major outages.
 <iframe
   src="assets/fig_cause.html"
