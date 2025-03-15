@@ -26,6 +26,7 @@ To make sure we can modeling the data conviniently and correctly, we clean the d
 - Converted OUTAGE.START.DATE and OUTAGE.RESTORATION.DATE to datetime format.
 
 ### Univariate Analysis
+
 Then, to get a brief understanding of the data, we explore if there's trend or interesting pattern in data.
 First, lets take a look at the most common causes of major outages.
 <iframe
@@ -53,6 +54,10 @@ We are curious about if different causes of outage can have different durations.
   frameborder="0"
 ></iframe>The boxplot highlights the distribution of outage duration across different cause categories, which can reveal patterns in how different types of outages vary in duration.
 
+### Grouping and Aggregates
+
+Intuitively, in the same time period, if the anormaly level (the cold and warm episodes by season) is higher, outage might occur more frequently due to unstable weather condition.
+We do a double grouping here and see if that guess is true.
 <div>
 <table border="1" class="dataframe">
   <thead>
@@ -91,36 +96,20 @@ We are curious about if different causes of outage can have different durations.
       <td>16.22</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <th>3</th>
+      <td>1.0</td>
+      <td>-0.7</td>
+      <td>33</td>
+      <td>94.14</td>
+      <td>5.86</td>
     </tr>
     <tr>
-      <th>130</th>
-      <td>12.0</td>
-      <td>1.1</td>
-      <td>6</td>
-      <td>95.80</td>
-      <td>4.20</td>
-    </tr>
-    <tr>
-      <th>131</th>
-      <td>12.0</td>
-      <td>1.3</td>
-      <td>6</td>
-      <td>88.32</td>
-      <td>11.68</td>
-    </tr>
-    <tr>
-      <th>132</th>
-      <td>12.0</td>
-      <td>2.3</td>
-      <td>15</td>
-      <td>94.08</td>
-      <td>5.92</td>
+      <th>4</th>
+      <td>1.0</td>
+      <td>-0.5</td>
+      <td>38</td>
+      <td>91.50</td>
+      <td>8.50</td>
     </tr>
   </tbody>
 </table>
