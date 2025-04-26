@@ -1,6 +1,6 @@
 # Power Outage Analysis
 
-**Name(s)**: Zhongyan Luo
+**Author**: Zhongyan Luo
 
 ## Step 1: Introduction
 
